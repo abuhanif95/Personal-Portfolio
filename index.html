@@ -1,39 +1,55 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <link rel="icon" href="./assets/icon.png" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SHT</title>
-    <link rel="stylesheet" href="./Files/style.css" />
+    <!-- Box Icon Link -->
     <link
-      href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css"
+      href="https://cdn.boxicons.com/fonts/basic/boxicons.min.css"
       rel="stylesheet"
     />
+
+    <!-- Google fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <header class="container">
-      <div class="logo-info">
-        <h1 class="logo">S<span>H</span>T</h1>
-      </div>
+    <div class="main-container">
+      <header>
+        <div class="brand-info">
+          <h1 class="primary">S<span>H</span>T</h1>
+        </div>
 
-      <div class="menu-area">
-        <input type="checkbox" id="menu-toggle" hidden />
-        <label for="menu-toggle" class="menu-icon">
-          <i class="bx bx-menu"></i>
-        </label>
-        <label for="menu-toggle" id="overlay"></label>
+        <div class="menu-area">
+          <input type="checkbox" id="menu-toggle" hidden />
+          <label for="menu-toggle" class="menu-icon">
+            <i class="bx bx-menu"></i>
+          </label>
+          <label for="menu-toggle" id="overlay"></label>
 
-        <ul class="nav-links">
-          <li class="nav-link" style="--i: 1"><a href="#">Home</a></li>
-          <li class="nav-link" style="--i: 2"><a href="#">About</a></li>
-          <li class="nav-link" style="--i: 3"><a href="#">Projects</a></li>
-          <li class="nav-link" style="--i: 4"><a href="#">Skills</a></li>
-          <li class="nav-link" style="--i: 5"><a href="#">Contact</a></li>
-        </ul>
-      </div>
-    </header>
+          <nav>
+            <a href="#" style="--i: 1">Home</a>
+            <a href="#" style="--i: 2">About</a>
+            <a href="#" style="--i: 3">Projects</a>
+            <a href="#" style="--i: 4">Services</a>
+            <a href="#" style="--i: 5">Contact</a>
+          </nav>
+        </div>
+      </header>
 
-    <script src="./Files/script.js" defer></script>
+      <main></main>
+    </div>
+    <script src="js/script.js" defer></script>
   </body>
 </html>
