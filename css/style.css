@@ -16,7 +16,7 @@
 
 body,
 html {
-  background: linear-gradient(135deg, #1a1a38 0%, #091e58 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #12121e 0%, #192953 50%, #383939 100%);
   color: var(--white);
   min-height: 100dvh;
   overflow-x: hidden;
@@ -80,7 +80,7 @@ header {
   inset: 0;
   top: 6rem;
   height: 100dvh;
-  background: linear-gradient(135deg, #1a1a38 0%, #091e58 50%, #0f3460 100%);
+  background: linear-gradient(135deg, #0f0f1c 0%, #1b2134 50%, #2a2a2b 100%);
   opacity: 0;
   z-index: 999;
   transition: opacity 0.3s ease;
@@ -121,10 +121,10 @@ nav a {
   transform: translateX(150%);
 
   /* Glass effect - more transparent to show gradient behind */
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.317);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
 }

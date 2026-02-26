@@ -1,0 +1,455 @@
+#home.content.active {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 2.5rem;
+  width: 90%;
+  max-width: 700px;
+  margin: 2rem auto;
+  padding: 3rem 0;
+}
+
+.img-container {
+  width: 270px;
+  height: 270px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.img-container::before,
+.img-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: conic-gradient(
+    transparent,
+    transparent,
+    transparent,
+    var(--pink)
+  );
+  animation: revolve 4s linear infinite;
+}
+
+.img-container::after {
+  animation-delay: 2s;
+}
+
+@keyframes revolve {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.img-container img {
+  width: calc(100% - 15px);
+  height: calc(100% - 15px);
+  border-radius: 50%;
+  object-fit: cover;
+  z-index: 2;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+}
+
+.details h2,
+.details h2 span {
+  font-size: 2.8rem;
+  font-family: "Orbitron", sans-serif;
+}
+
+.details h2 span {
+  background: linear-gradient(135deg, #ffc0cb 0%, #ffffff 100%);
+  background-clip: text;
+  color: transparent;
+}
+
+.details h3 {
+  position: relative;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.details h3 span {
+  color: var(--pink);
+  display: inline-block;
+  min-width: 130px;
+  overflow: hidden;
+  white-space: nowrap;
+  font-family: "Orbitron", sans-serif;
+}
+
+.details h3 span::after {
+  content: "|";
+  margin-left: 5px;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.details p {
+  font-size: 1.05rem;
+  text-align: justify;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.bottom button {
+  width: 12rem;
+  padding: 0.7rem 0;
+  font-size: 1.15rem;
+  font-weight: 600;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #ffffff 0%, #ffc0cb 100%);
+  color: var(--secondary);
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.bottom button:hover {
+  opacity: 0.9;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
+  color: black;
+}
+
+.social-icons {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 2rem;
+}
+
+.social-icons a {
+  color: var(--white);
+  transition: all 0.3s ease;
+  text-decoration: none;
+  height: 50px;
+  width: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.social-icons a i {
+  font-size: 2.5rem;
+}
+
+.social-icons a:hover {
+  color: var(--pink);
+  scale: 105%;
+}
+
+.navlink.active {
+  color: var(--pink);
+}
+
+.content {
+  display: none;
+}
+
+.content.active {
+  display: block;
+}
+
+/* Small Mobile Devices - up to 480px */
+@media screen and (max-width: 480px) {
+  #home.content.active {
+    gap: 1.8rem;
+    margin: 1.5rem auto;
+    padding: 0;
+  }
+
+  .img-container {
+    width: 220px;
+    height: 220px;
+  }
+
+  .details h2,
+  .details h2 span {
+    font-size: 2.2rem;
+  }
+
+  .details h3 {
+    font-size: 1.2rem;
+    gap: 0.5rem;
+  }
+
+  .details h3 span {
+    min-width: 110px;
+  }
+
+  .details p {
+    font-size: 0.95rem;
+  }
+
+  .bottom button {
+    width: 10rem;
+    padding: 0.6rem 0;
+    font-size: 1rem;
+  }
+
+  .social-icons {
+    gap: 1rem;
+    font-size: 1.8rem;
+  }
+
+  .social-icons a i {
+    font-size: 2rem;
+  }
+}
+
+/* Tablet Styles - 481px to 767px */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+  #home.content.active {
+    gap: 2.2rem;
+  }
+
+  .img-container {
+    width: 250px;
+    height: 250px;
+  }
+
+  .details h2,
+  .details h2 span {
+    font-size: 2.5rem;
+  }
+
+  .details h3 {
+    font-size: 1.4rem;
+  }
+
+  .details p {
+    font-size: 1rem;
+  }
+}
+
+/* Tablet and up - matches style.css 768px breakpoint */
+@media screen and (min-width: 768px) {
+  #home.content.active {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 2.5rem;
+    width: 100%;
+    max-width: 850px;
+    margin: 2rem auto;
+  }
+
+  .img-container {
+    width: 300px;
+    height: 300px;
+    justify-self: end;
+  }
+
+  .details {
+    max-width: 100%;
+    gap: 18px;
+  }
+
+  .details h2,
+  .details h2 span {
+    font-size: 2.8rem;
+  }
+
+  .details h3 {
+    font-size: 1.6rem;
+  }
+
+  .details h3 span {
+    min-width: 140px;
+  }
+
+  .details p {
+    font-size: 1.1rem;
+  }
+
+  .bottom {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .social-icons {
+    font-size: 2.2rem;
+  }
+
+  .social-icons a i {
+    font-size: 2.5rem;
+  }
+}
+
+/* Large Desktop - matches style.css 1024px breakpoint */
+@media screen and (min-width: 1024px) {
+  #home.content.active {
+    max-width: 1000px;
+    gap: 3.5rem;
+    margin: 3rem auto;
+  }
+
+  .img-container {
+    width: 380px;
+    height: 380px;
+  }
+
+  .details {
+    gap: 25px;
+  }
+
+  .details h2,
+  .details h2 span {
+    font-size: 4rem;
+  }
+
+  .details h3 {
+    font-size: 2rem;
+    gap: 1rem;
+  }
+
+  .details h3 span {
+    min-width: 170px;
+  }
+
+  .details p {
+    font-size: 1.25rem;
+  }
+
+  .bottom {
+    gap: 1.5rem;
+  }
+
+  .bottom button {
+    width: 13rem;
+    padding: 0.8rem 0;
+    font-size: 1.25rem;
+  }
+
+  .social-icons {
+    gap: 1.5rem;
+    font-size: 2.5rem;
+  }
+
+  .social-icons a i {
+    font-size: 3rem;
+  }
+}
+
+/* Extra Large Desktop - matches style.css 1280px breakpoint */
+@media screen and (min-width: 1280px) {
+  #home.content.active {
+    max-width: 1200px;
+    gap: 4rem;
+  }
+
+  .img-container {
+    width: 420px;
+    height: 420px;
+  }
+
+  .details {
+    gap: 30px;
+  }
+
+  .details h2,
+  .details h2 span {
+    font-size: 5rem;
+  }
+
+  .details h3 {
+    font-size: 2.3rem;
+  }
+
+  .details h3 span {
+    min-width: 190px;
+  }
+
+  .details p {
+    font-size: 1.4rem;
+  }
+
+  .bottom {
+    gap: 2rem;
+  }
+
+  .bottom button {
+    width: 14rem;
+    padding: 0.9rem 0;
+    font-size: 1.35rem;
+  }
+
+  .social-icons {
+    gap: 1.8rem;
+    font-size: 2.8rem;
+  }
+
+  .social-icons a i {
+    font-size: 3.2rem;
+  }
+}
+
+/* Landscape Mode for Mobile - matches style.css */
+@media screen and (max-height: 600px) and (orientation: landscape) {
+  #home.content.active {
+    gap: 1.5rem;
+    margin: 1rem auto;
+  }
+
+  .img-container {
+    width: 200px;
+    height: 200px;
+  }
+
+  .details {
+    gap: 10px;
+  }
+
+  .details h2,
+  .details h2 span {
+    font-size: 2rem;
+  }
+
+  .details h3 {
+    font-size: 1.2rem;
+  }
+
+  .details p {
+    font-size: 0.9rem;
+  }
+
+  .bottom {
+    flex-direction: row;
+    gap: 1rem;
+  }
+
+  .bottom button {
+    width: 10rem;
+    padding: 0.5rem 0;
+    font-size: 1rem;
+  }
+}
