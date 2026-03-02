@@ -7,6 +7,8 @@
   max-width: 700px;
   margin: 2rem auto;
   padding: 3rem 0;
+  position: relative;
+  z-index: 2;
 }
 
 .img-container {
@@ -18,6 +20,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  box-shadow: 0 0 30px rgba(0, 150, 255, 0.3);
 }
 
 .img-container::before,
@@ -29,9 +32,10 @@
     transparent,
     transparent,
     transparent,
-    var(--pink)
+    #ffc0cb
   );
   animation: revolve 4s linear infinite;
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.5);
 }
 
 .img-container::after {
@@ -53,6 +57,13 @@
   border-radius: 50%;
   object-fit: cover;
   z-index: 2;
+  border: 3px solid rgba(255, 192, 203, 0.3);
+  transition: all 0.3s ease;
+}
+
+.img-container:hover img {
+  border-color: rgba(255, 192, 203, 0.8);
+  transform: scale(1.02);
 }
 
 .details {
@@ -60,6 +71,12 @@
   flex-direction: column;
   gap: 20px;
   max-width: 600px;
+  background: rgba(0, 11, 28, 0.2);
+  backdrop-filter: blur(5px);
+  padding: 25px;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 192, 203, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
 }
 
 .details h2,
@@ -72,6 +89,7 @@
   background: linear-gradient(135deg, #ffc0cb 0%, #ffffff 100%);
   background-clip: text;
   color: transparent;
+  text-shadow: 0 0 15px rgba(255, 192, 203, 0.5);
 }
 
 .details h3 {
@@ -91,12 +109,14 @@
   overflow: hidden;
   white-space: nowrap;
   font-family: "Orbitron", sans-serif;
+  text-shadow: 0 0 10px rgba(255, 192, 203, 0.5);
 }
 
 .details h3 span::after {
   content: "|";
   margin-left: 5px;
   animation: blink 0.7s steps(1) infinite;
+  color: #ffc0cb;
 }
 
 @keyframes blink {
@@ -112,6 +132,13 @@
 .details p {
   font-size: 1.05rem;
   text-align: justify;
+  line-height: 1.7;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.details p strong {
+  color: #ffc0cb;
+  font-weight: 600;
 }
 
 .bottom {
@@ -126,17 +153,42 @@
   font-size: 1.15rem;
   font-weight: 600;
   border-radius: 5px;
-  background: linear-gradient(135deg, #ffffff 0%, #ffc0cb 100%);
-  color: var(--secondary);
+  background: linear-gradient(135deg, #ffc0cb 0%, #ffffff 100%);
+  color: black;
   cursor: pointer;
-  border: none;
+  border: 1px solid rgba(255, 192, 203, 0.3);
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.bottom button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.bottom button:hover::before {
+  left: 100%;
 }
 
 .bottom button:hover {
-  opacity: 0.9;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.3);
-  color: black;
+  background: linear-gradient(135deg, #001f3f, #003366, #004080);
+  border-color: rgba(255, 192, 203, 0.6);
+  box-shadow: 0 12px 28px rgba(0, 100, 255, 0.4);
+  color: white;
+  transform: translateY(-2px);
 }
 
 .social-icons {
@@ -155,19 +207,43 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background: rgba(0, 11, 28, 0.3);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 192, 203, 0.2);
 }
 
 .social-icons a i {
   font-size: 2.5rem;
+  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
   color: var(--pink);
   scale: 105%;
+  background: linear-gradient(135deg, #000b1c, #001f3f, #003366);
+  border-color: rgba(255, 192, 203, 0.6);
+  box-shadow: 0 0 20px rgba(255, 192, 203, 0.3);
+}
+
+.social-icons a:hover i {
+  transform: scale(1.1);
 }
 
 .navlink.active {
-  color: var(--pink);
+  color: var(--pink) !important;
+  position: relative;
+}
+
+.navlink.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, #ffc0cb, #ffffff);
+  border-radius: 2px;
 }
 
 .content {
@@ -189,6 +265,10 @@
   .img-container {
     width: 220px;
     height: 220px;
+  }
+
+  .details {
+    padding: 20px;
   }
 
   .details h2,
@@ -222,6 +302,11 @@
 
   .social-icons a i {
     font-size: 2rem;
+  }
+
+  .social-icons a {
+    height: 40px;
+    width: 40px;
   }
 }
 
@@ -271,6 +356,11 @@
   .details {
     max-width: 100%;
     gap: 18px;
+    background: transparent;
+    backdrop-filter: none;
+    padding: 0;
+    border: none;
+    box-shadow: none;
   }
 
   .details h2,
@@ -302,6 +392,11 @@
 
   .social-icons a i {
     font-size: 2.5rem;
+  }
+
+  .social-icons a {
+    height: 50px;
+    width: 50px;
   }
 }
 
@@ -358,6 +453,11 @@
   .social-icons a i {
     font-size: 3rem;
   }
+
+  .social-icons a {
+    height: 60px;
+    width: 60px;
+  }
 }
 
 /* Extra Large Desktop - matches style.css 1280px breakpoint */
@@ -411,6 +511,11 @@
   .social-icons a i {
     font-size: 3.2rem;
   }
+
+  .social-icons a {
+    height: 70px;
+    width: 70px;
+  }
 }
 
 /* Landscape Mode for Mobile - matches style.css */
@@ -427,6 +532,7 @@
 
   .details {
     gap: 10px;
+    padding: 15px;
   }
 
   .details h2,
